@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아미팜 제약회사 - 건강한 미래를 위한 혁신</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💊</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Montserrat:wght@400;700&display=swap');
+
+        :root {
+            --primary-blue: #2c3e50; /* Darker, professional blue */
+            --accent-blue: #3498db; /* Brighter accent blue */
+            --light-gray: #f8f8f8;
+            --text-dark: #333;
+            --text-light: #fff;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-gray);
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-blue);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--text-light);
+            padding: 12px 25px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 5px;
+        }
+
+        /* Header */
+        .main-header {
+            background: var(--primary-blue);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 30px;
+        }
+
+        .navbar ul li a {
+            color: var(--text-light);
+            font-weight: 400;
+            padding: 5px 0;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--accent-blue);
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 10px;
+        }
+
+        .menu-toggle .bar {
+            height: 3px;
+            width: 25px;
+            background: var(--text-light);
+            margin: 4px 0;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?pharmaceutical,science,research') no-repeat center center/cover;
+            color: var(--text-light);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: -80px; /* Adjust for fixed header */
+            padding-top: 80px;
+        }
+
+        #hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 0;
+            background: var(--text-light);
+            text-align: center;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .about-content img {
+            max-width: 45%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Products Section */
+        #products {
+            padding: 80px 0;
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: var(--text-light);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .product-card i {
+            font-size: 3.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* R&D Section */
+        #rnd {
+            padding: 80px 0;
+            background: var(--text-light);
+            text-align: center;
+        }
+
+        .rnd-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .rnd-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: left;
+            border-left: 5px solid var(--accent-blue);
+        }
+
+        .rnd-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .rnd-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 0;
+            background: var(--accent-blue);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: var(--text-light);
+        }
+        #contact .section-title::after {
+            background: var(--text-light);
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info p i {
+            margin-right: 10px;
+            color: var(--text-light);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--text-light);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .contact-form input[type="text"]::placeholder,
+        .contact-form input[type="email"]::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: var(--text-light);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn {
+            background: var(--primary-blue);
+        }
+
+        .contact-form .btn:hover {
+            background: #23313d;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--primary-blue);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links ul li {
+            margin: 0 15px 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-blue);
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            #hero h2 {
+                font-size: 2.8rem;
+            }
+            #hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+            .about-content img {
+                max-width: 80%;
+                margin-bottom: 30px;
+            }
+            .about-text {
+                text-align: center;
+            }
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            .rnd-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .rnd-item {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: absolute;
+                top: 80px; /* Below header */
+                left: 0;
+                width: 100%;
+                background: var(--primary-blue);
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .navbar ul li {
+                margin: 15px 0;
+            }
+
+            .navbar ul li a {
+                font-size: 1.2rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .main-header .container {
+                padding: 0 15px;
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            #hero {
+                height: 80vh;
+            }
+            #hero h2 {
+                font-size: 2.2rem;
+            }
+            #hero p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            #about, #products, #rnd, #contact {
+                padding: 60px 0;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+            .contact-info, .contact-form {
+                max-width: 90%;
+            }
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+            .contact-info p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+            #hero h2 {
+                font-size: 1.8rem;
+            }
+            #hero p {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Armi<span>Farm</span></a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#hero">홈</a></li>
+                    <li><a href="#about">회사소개</a></li>
+                    <li><a href="#products">제품</a></li>
+                    <li><a href="#rnd">연구개발</a></li>
+                    <li><a href="#contact">문의</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>신뢰와 기술로 만드는 더 나은 내일</h2>
+                <p>아미팜 제약회사는 인류의 건강 증진과 삶의 질 향상을 위해 끊임없이 연구하고 혁신합니다.</p>
+                <a href="#products" class="btn">주요 제품 보기</a>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title text-center">회사소개</h2>
+            <div class="about-content">
+                <img src="https://source.unsplash.com/800x600/?pharmacy,laboratory" alt="아미팜 연구실 이미지">
+                <div class="about-text">
+                    <h3>아미팜, 건강을 위한 약속</h3>
+                    <p>아미팜 제약회사는 <strong>혁신적인 의약품 개발</strong>을 통해 인류의 건강한 삶에 기여하고자 설립되었습니다. 우리는 최고 수준의 연구 시설과 전문가들을 갖추고 있으며, 엄격한 품질 관리를 통해 안전하고 효과적인 제품만을 선보입니다.</p>
+                    <p>환자 중심의 가치를 최우선으로, 질병 예방과 치료는 물론, 삶의 활력을 불어넣는 웰빙 솔루션까지 폭넓은 분야에서 끊임없이 도전하고 있습니다. 아미팜은 건강한 미래를 위한 여러분의 든든한 동반자가 될 것을 약속드립니다.</p>
+                    <a href="#rnd" class="btn">더 알아보기</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="container">
+            <h2 class="section-title text-center">주요 제품 및 솔루션</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <i class="fas fa-pills"></i>
+                    <h3>전문의약품</h3>
+                    <p>질병 치료를 위한 혁신적인 전문의약품을 개발하여 환자들의 삶의 질 향상에 기여합니다.</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>일반의약품</h3>
+                    <p>일상에서 건강을 지키는 데 도움을 주는 안전하고 효과적인 일반의약품을 제공합니다.</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>건강기능식품</h3>
+                    <p>첨단 과학 기술과 자연의 지혜를 결합하여 건강 증진을 위한 기능성 식품을 연구합니다.</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>바이오 의약품</h3>
+                    <p>생명공학 기술을 활용한 차세대 바이오 의약품 연구로 미래 의학을 선도합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="rnd" class="container">
+            <h2 class="section-title text-center">연구 개발 및 혁신</h2>
+            <div class="rnd-grid">
+                <div class="rnd-item">
+                    <h3>최첨단 연구 시설</h3>
+                    <p>최신 장비와 깨끗한 환경을 갖춘 연구 시설에서 글로벌 수준의 연구를 수행합니다.</p>
+                </div>
+                <div class="rnd-item">
+                    <h3>글로벌 파트너십</h3>
+                    <p>국내외 유수의 연구기관 및 기업들과 협력하여 시너지를 창출하고 있습니다.</p>
+                </div>
+                <div class="rnd-item">
+                    <h3>핵심 기술 역량</h3>
+                    <p>신약 물질 발굴부터 임상 개발까지 전 과정에서 독보적인 핵심 기술을 보유하고 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title text-center">문의하기</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>아미팜에 연락주세요</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 서울특별시 강남구 테헤란로 123 아미팜 빌딩</p>
+                        <p><i class="fas fa-phone"></i> +82 (0)2-1234-5678</p>
+                        <p><i class="fas fa-envelope"></i> info@armifarm.co.kr</p>
+                        <p><i class="fas fa-clock"></i> 월-금: 09:00 - 18:00</p>
+                    </div>
+                    <div class="contact-form">
+                        <form action="#" method="POST">
+                            <input type="text" name="name" placeholder="이름" required>
+                            <input type="email" name="email" placeholder="이메일" required>
+                            <input type="text" name="subject" placeholder="제목" required>
+                            <textarea name="message" placeholder="메시지를 입력해주세요" required></textarea>
+                            <button type="submit" class="btn">메시지 전송</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#about">회사소개</a></li>
+                    <li><a href="#products">제품정보</a></li>
+                    <li><a href="#rnd">연구개발</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">이용약관</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2023 ArmiFarm Pharmaceutical Co., Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.navbar ul li a');
+
+            menuToggle.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbar.classList.contains('active')) {
+                        navbar.classList.remove('active');
+                    }
+                    // Smooth scroll to section
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - (document.querySelector('.main-header').offsetHeight), // Adjust for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Close navbar if click outside on mobile
+            document.addEventListener('click', (event) => {
+                const isClickInsideNavbar = navbar.contains(event.target);
+                const isClickOnToggle = menuToggle.contains(event.target);
+                if (!isClickInsideNavbar && !isClickOnToggle && navbar.classList.contains('active')) {
+                    navbar.classList.remove('active');
+                }
+            });
+
+            // Sticky header offset for smooth scrolling, active nav link highlighting
+            const sections = document.querySelectorAll('section');
+            const headerHeight = document.querySelector('.main-header').offsetHeight;
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - headerHeight - 1; // -1 to make it slightly before section
+                    if (scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Initial active state for home link
+            if (window.location.hash === '') {
+                document.querySelector('.navbar ul li a[href="#hero"]').classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
